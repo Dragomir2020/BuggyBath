@@ -1,0 +1,146 @@
+'{$STAMP BS2}
+'{$PBASIC 2.5}
+
+' Declare variables
+Seven_Segment_State VAR WORD
+counter VAR WORD
+brightness VAR WORD
+hold VAR WORD
+
+' Initialize variables
+Seven_Segment_State = 0
+
+' Calibrate light sensor on startup
+' Wait for push button
+counter = 10
+brightness = 0
+
+DO
+	' Counter is random vairable used throughout program
+	counter = counter - 1
+	hold = brightness
+	HIGH 4
+	PAUSE 10
+	RCTIME 4, 1, brightness
+	brightness = hold + brightness
+LOOP UNTIL counter = 0
+
+brightness = brightness/10
+
+DEBUG "Brightness:",  DEC brightness, CR
+
+DO
+	' Start at basic 
+	GOSUB ON_B
+	' Turn on green led on and yellow off
+	HIGH 6
+	LOW 7
+	' Check brightness to start car wash
+	DO
+		' Check button press
+		IF IN3 = 1 THEN
+			GOSUB NEXT_WASH_TYPE
+			PAUSE 500
+		ENDIF
+		' Check current brightness
+		HIGH 4
+		PAUSE 10
+		RCTIME 4, 1, counter
+		'DEBUG "Counter:",  DEC counter, CR
+	LOOP UNTIL counter > brightness * 2
+	
+	' Turn off green and turn on red
+	HIGH 7
+	LOW 5
+
+	PAUSE 1000
+
+	' Turn on motor
+	GOSUB WASH_CYCLE
+
+	'Turn off red and turn on yellow and start fan
+	HIGH 5
+	LOW 6
+
+	' Turn on Fan
+	HIGH 8
+	PAUSE 5000
+	LOW 8
+			
+LOOP
+
+' Adjusts wash length based on wash type
+WASH_CYCLE:
+	' TODO: TURN ON WATER PUMP HERE ALSO
+	HIGH 9
+	HIGH 15
+	IF Seven_Segment_State//3 = 0 THEN
+		PAUSE 5000
+	ENDIF
+	IF Seven_Segment_State//3 = 1 THEN
+		PAUSE 10000
+	ENDIF
+	IF Seven_Segment_State//3 = 2 THEN
+		PAUSE 15000
+	ENDIF	
+	LOW 9
+	LOW 15
+	RETURN
+
+' Updates seven segment display for next wash type
+NEXT_WASH_TYPE:
+	Seven_Segment_State = Seven_Segment_State + 1
+	IF Seven_Segment_State//3 = 0 THEN
+		GOSUB OFF_S
+		GOSUB ON_B
+	ENDIF
+	IF Seven_Segment_State//3 = 1 THEN
+		GOSUB OFF_B
+		GOSUB ON_A
+	ENDIF
+	IF Seven_Segment_State//3 = 2 THEN
+		GOSUB OFF_A
+		GOSUB ON_S
+	ENDIF	
+	RETURN
+
+' Displays A for advanced on seven segment
+ON_A:
+	HIGH 2
+	HIGH 0
+	LOW 1
+	RETURN
+	
+' Turns off A on seven segment
+OFF_A:
+	LOW 2
+	LOW 0
+	LOW 1
+	RETURN
+' Turns on B
+ON_B:
+	HIGH 2
+	HIGH 0
+	HIGH 1
+	RETURN
+
+'Turns off B
+OFF_B:
+	LOW 2
+	LOW 0
+	LOW 1
+	RETURN
+
+' Turns on S
+ON_S:
+	LOW 2
+	LOW 0
+	HIGH 1
+	RETURN
+	
+' Turns off S
+OFF_S:
+	LOW 2
+	LOW 0
+	LOW 1
+	RETURN
