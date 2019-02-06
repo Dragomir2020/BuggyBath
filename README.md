@@ -143,15 +143,15 @@ Part of the original design that we eventually changed was having a separate dis
 
 **Working Model**
 
-![Wash Entrance](/imgs/wash_entrance.png)
+![Wash Entrance](/imgs/wash_entrance.jpg)
 
-![Wash Top](/imgs/wash_top.png)
+![Wash Top](/imgs/wash_top.jpg)
 
-![Wash Exit](/imgs/wash_exit.png)
+![Wash Exit](/imgs/wash_exit.jpg)
 
-![Wash Top 2](/imgs/wash_top_2.png)
+![Wash Top 2](/imgs/wash_top_2.jpg)
 
-![Water Pump 2](/imgs/water_pump_2.png)
+![Water Pump 2](/imgs/water_pump_2.jpg)
 
 **Bugs/Issues and Remedies**
 
