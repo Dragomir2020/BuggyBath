@@ -39,11 +39,27 @@ The yellow light means that you need to drive slowly out of the car wash bay to 
 
 **DESIGN DESCRIPTION**
 
-![Design Diagram](/imgs/imp_diagram.png)
-
 The Buggy Bath will be implemented on a small scale in a waterproof clear container. The container will have a grate and water in the bottom. A pump will be used to pump water onto the toy car and to rinse after washing. The motor will be used to spin strips of fabric to clean the car. The system will have feedback in the form of leds and a seven segment display. The location of the car will be tracked with light sensors. Finally, when the car wash is done the yellow led will be lit telling the user to drive slowly out and past the fans.
 
+![Flow Chart](/imgs/flow_chart.png)
+
+![Implementation Diagram](/imgs/imp_diagram.png)
+
 **TEST PLAN**
+
+![Seven Segment](/imgs/seven_segment.png)
+
+![Push Button](/imgs/push_button.png)
+
+![Light Sensor](/imgs/light_sensor.png)
+
+![Water Pump](/imgs/water_pump.png)
+
+![Servo Motor](/imgs/servo_motor.png)
+
+![Fan](/imgs/fan.png)
+
+![LED](/imgs/led.png)
 
 **Tests for start sensor and selecting wash type:**
 
@@ -117,7 +133,7 @@ Total project cost: $10.98
 
 **Timeline**
 
-Figure 10 shows the timeline of the project in the form of a Gantt Chart. Week 1 was the week of 10/14, and week 8 was the week of 12/2.
+![GANTT](/imgs/gantt.png)
 
 **Design Alternatives**
 
@@ -125,7 +141,17 @@ Some alternative design decisions that were made included different features of 
 
 Part of the original design that we eventually changed was having a separate dispenser for the soap and water. We had thought that this would be more effective at removing dirt from the car, since the car would have double the cleaning time. However the addition of more components requires more power, and we decided that for the scale of this project it would not be feasible to run pumps for both the soap and water. It was then decided that instead of pre-rinsing the car with water then spraying it with soap that these two steps would be combined, and the car will be sprayed with a soapy water mixture.
 
+**Working Model**
 
+![Wash Entrance](/imgs/wash_entrance.png)
+
+![Wash Top](/imgs/wash_top.png)
+
+![Wash Exit](/imgs/wash_exit.png)
+
+![Wash Top 2](/imgs/wash_top_2.png)
+
+![Water Pump 2](/imgs/water_pump_2.png)
 
 **Bugs/Issues and Remedies**
 
