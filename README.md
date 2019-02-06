@@ -39,6 +39,8 @@ The yellow light means that you need to drive slowly out of the car wash bay to 
 
 **DESIGN DESCRIPTION**
 
+![Design Diagram](./imgs/imp)diagram.png)
+
 The Buggy Bath will be implemented on a small scale in a waterproof clear container. The container will have a grate and water in the bottom. A pump will be used to pump water onto the toy car and to rinse after washing. The motor will be used to spin strips of fabric to clean the car. The system will have feedback in the form of leds and a seven segment display. The location of the car will be tracked with light sensors. Finally, when the car wash is done the yellow led will be lit telling the user to drive slowly out and past the fans.
 
 **TEST PLAN**
